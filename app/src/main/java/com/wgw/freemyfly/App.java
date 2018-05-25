@@ -14,8 +14,6 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.view.WindowManager;
 
-import com.wgw.freemyfly.commons.DensityHelper;
-
 /**
  * Created by wgw on 2018/5/22.
  */
@@ -29,6 +27,7 @@ public class App extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -43,9 +42,9 @@ public class App extends Application {
         resetDensity();
     }
 
-    public void resetDensity(){
+    public void resetDensity() {
         Point size = new Point();
-        ((WindowManager)getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
-        getResources().getDisplayMetrics().xdpi = size.x/DESIGN_WIDTH*72f;
+        ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
+        getResources().getDisplayMetrics().xdpi = size.x / DESIGN_WIDTH * 72f;
     }
 }
