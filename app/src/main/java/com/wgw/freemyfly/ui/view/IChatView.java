@@ -6,22 +6,15 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.wgw.freemyfly.ui.presenter;
+package com.wgw.freemyfly.ui.view;
 
-import com.wgw.freemyfly.ui.base.BasePresenter;
-import com.wgw.freemyfly.ui.view.iAboutview;
+import android.widget.EditText;
 
 /**
- * Created by wgw on 2018/5/16.
+ * Created by wgw on 2018/5/28.
  */
 
-public class AboutPresenter extends BasePresenter<iAboutview> {
-
-    private iAboutview miAboutview;
-    @Override
-    public void attachView(iAboutview iAboutview) {
-        miAboutview = iAboutview;
-    }
-
-
+public interface IChatView {
+    public EditText getSendMessage();
+    public void showReceiveMessage(String msg);
 }

@@ -5,5 +5,5 @@ package com.wgw.freemyfly.ui.base;
  */
 
 public abstract class BasePresenter<V> {
-    protected abstract void attachView(V v);
+    public abstract void attachView(V v);
 }

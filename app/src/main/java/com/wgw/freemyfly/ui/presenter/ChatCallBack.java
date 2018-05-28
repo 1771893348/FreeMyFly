@@ -8,20 +8,15 @@
 
 package com.wgw.freemyfly.ui.presenter;
 
-import com.wgw.freemyfly.ui.base.BasePresenter;
-import com.wgw.freemyfly.ui.view.iAboutview;
-
 /**
- * Created by wgw on 2018/5/16.
+ * Created by wgw on 2018/5/28.
  */
 
-public class AboutPresenter extends BasePresenter<iAboutview> {
+public interface ChatCallBack {
 
-    private iAboutview miAboutview;
-    @Override
-    public void attachView(iAboutview iAboutview) {
-        miAboutview = iAboutview;
-    }
+    public void isConnectServer(boolean isConnect);
+
+    public  void receiverMsg(String msg);
 
 
 }

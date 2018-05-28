@@ -11,7 +11,7 @@ public class LoginPresenter extends BasePresenter<iLoginview> {
 
     private iLoginview miLoginview;
     @Override
-    protected void attachView(iLoginview iLoginview) {
+    public void attachView(iLoginview iLoginview) {
         miLoginview = iLoginview;
     }
 
