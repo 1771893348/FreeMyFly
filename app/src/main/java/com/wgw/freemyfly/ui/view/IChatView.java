@@ -17,4 +17,5 @@ import android.widget.EditText;
 public interface IChatView {
     public EditText getSendMessage();
     public void showReceiveMessage(String msg);
+    public void sendMsgOver(String msg);
 }
