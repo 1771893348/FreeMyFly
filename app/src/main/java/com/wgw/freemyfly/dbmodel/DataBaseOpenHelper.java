@@ -20,6 +20,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ *
+ * 1、支持多用户数据储存
+ * 2、支持 Sqlite数据库升级
+ * 3、支持传入 Sql 语句建表
+ * 4、支持 SQLiteDatabase 基本操作。比如：execSQL、rawQuery、insert等等
+ * 5、解决了数据库并发问题
+ *
  * Created by wgw on 2018/5/25.
  */
 
