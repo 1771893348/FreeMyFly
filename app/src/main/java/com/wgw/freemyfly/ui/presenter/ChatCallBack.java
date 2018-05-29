@@ -18,5 +18,5 @@ public interface ChatCallBack {
 
     public  void receiverMsg(String msg);
 
-
+    public void sendMsg(String msg);
 }

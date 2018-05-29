@@ -9,6 +9,7 @@
 package com.wgw.freemyfly.ui.presenter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 
@@ -55,7 +56,7 @@ public class ChatPresenter extends BasePresenter<IChatView> implements ChatCallB
                     mChatModel.receiverMsg();
                     break;
                 case R.id.btn_send:
-                    mChatModel.sendMsg(mIchatView.getSendMessage().toString()+"\n");
+                    mChatModel.sendMsg(mIchatView.getSendMessage().getText().toString()+"\n");
                     break;
                 case R.id.btn_disconnect:
                     mChatModel.disConnect();
@@ -76,5 +77,10 @@ public class ChatPresenter extends BasePresenter<IChatView> implements ChatCallB
     @Override
     public void receiverMsg(String msg) {
         mIchatView.showReceiveMessage(msg+"\n");
+    }
+
+    @Override
+    public void sendMsg(String msg) {
+        mIchatView.sendMsgOver(msg);
     }
 }
