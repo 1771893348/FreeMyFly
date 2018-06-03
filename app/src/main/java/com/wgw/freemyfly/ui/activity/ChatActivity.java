@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.wgw.freemyfly.Api.OkHttpUtils;
 import com.wgw.freemyfly.R;
 import com.wgw.freemyfly.commons.WGWHandler;
 import com.wgw.freemyfly.ui.base.MVPBaseActivity;
@@ -50,6 +51,9 @@ public class ChatActivity extends MVPBaseActivity<IChatView,ChatPresenter> imple
     @BindView(R.id.btn_send)
     public Button btn_send;
 
+    @BindView(R.id.okHttpTest)
+    public Button okHttpTest;
+
     private ChatPresenter mChatPresenter;
 
     private StringBuffer stringBuffer;
@@ -77,6 +81,7 @@ public class ChatActivity extends MVPBaseActivity<IChatView,ChatPresenter> imple
         stringBuffer = new StringBuffer();
         initListener();
         verifyStoragePermissions(this);
+
     }
 
     private void initListener() {
@@ -84,6 +89,7 @@ public class ChatActivity extends MVPBaseActivity<IChatView,ChatPresenter> imple
         mChatPresenter.setOnclickListener(btn_disconnect);
         mChatPresenter.setOnclickListener(btn_Receive);
         mChatPresenter.setOnclickListener(btn_send);
+        mChatPresenter.setOnclickListener(okHttpTest);
     }
 
     @Override
