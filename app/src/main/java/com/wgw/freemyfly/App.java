@@ -14,6 +14,8 @@ import android.content.res.Configuration;
 import android.graphics.Point;
 import android.view.WindowManager;
 
+import com.wgw.freemyfly.commons.DensityHelper;
+
 /**
  * Created by wgw on 2018/5/22.
  */
