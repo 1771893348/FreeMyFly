@@ -8,6 +8,9 @@
 
 package com.wgw.freemyfly.ui.mvpmodel;
 
+import android.util.Log;
+
+import com.wgw.freemyfly.Api.OkHttpUtils;
 import com.wgw.freemyfly.commons.SysCommon;
 import com.wgw.freemyfly.ui.presenter.ChatCallBack;
 
@@ -41,6 +44,7 @@ public class ChatModel {
     }
 
     public void connectServer(){
+        Log.d("wgw_connectServer","=============");
         mThreadPool.execute(new Runnable() {
             @Override
             public void run() {
@@ -60,14 +64,21 @@ public class ChatModel {
     }
 
     public void receiverMsg(){
+
+        Log.d("wgw_receiverMsg","=============");
         mThreadPool.execute(new Runnable() {
             @Override
             public void run() {
                 try {
+                    if (null == socket){
+                        mChatCallBack.receiverMsg("Error:未建立连接");
+                        return;
+                    }
                     is = socket.getInputStream();
                     isr = new InputStreamReader(is);
                     br = new BufferedReader(isr);
                     response = br.readLine();
+                    Log.d("wgw_receiverMsg","============="+response);
                     mChatCallBack.receiverMsg(response);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -78,14 +89,16 @@ public class ChatModel {
     }
 
     public void sendMsg(String msg){
-
+        Log.d("wgw_send",msg+socket.isConnected());
         mThreadPool.execute(new Runnable() {
             @Override
             public void run() {
                 try {
+                    Log.d("wgw_send",msg);
                     outputStream = socket.getOutputStream();
                     outputStream.write(msg.getBytes("UTF-8"));
                     outputStream.flush();
+                    mChatCallBack.sendMsg(msg);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -95,11 +108,15 @@ public class ChatModel {
     }
 
     public void disConnect(){
+        Log.d("wgw_disConnect","111"+socket.isClosed());
         mThreadPool.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    outputStream.close();
+                    if (null != outputStream){
+                        outputStream.close();
+                    }
+
                     br.close();
                     socket.close();
                 } catch (IOException e) {
@@ -108,5 +125,9 @@ public class ChatModel {
 
             }
         });
+    }
+    public void okHttpTesting(){
+        Log.d("wgw_okHttpTesting","================");
+        OkHttpUtils.okhttp();
     }
 }
