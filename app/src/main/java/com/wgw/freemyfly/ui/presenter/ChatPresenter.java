@@ -61,6 +61,9 @@ public class ChatPresenter extends BasePresenter<IChatView> implements ChatCallB
                 case R.id.btn_disconnect:
                     mChatModel.disConnect();
                     break;
+                case R.id.okHttpTest:
+                    mChatModel.okHttpTesting();
+                    break;
             }
         }
     };
