@@ -16,11 +16,9 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.wgw.freemyfly.R;
 
 public class GlideUtils {
 
@@ -97,6 +95,9 @@ public class GlideUtils {
     //设置加载动画
     public static void loadImageViewAnim(Context mContext, String path, int anim, ImageView mImageView) {
 
+//        RequestOptions requestOptions = new RequestOptions();
+//        requestOptions.
+//
 //        Glide.with(mContext).load(path).animate(anim).into(mImageView);
     }
 
@@ -122,12 +123,17 @@ public class GlideUtils {
 
     //设置动态GIF加载方式
     public static void loadImageViewDynamicGif(Context mContext, String path, ImageView mImageView) {
+//        RequestOptions options = new RequestOptions();
+
 //        Glide.with(mContext).load(path).asGif().into(mImageView);
+
+        Glide.with(mContext)
+                .asGif().load(path).into(mImageView);
     }
 
     //设置静态GIF加载方式
     public static void loadImageViewStaticGif(Context mContext, String path, ImageView mImageView) {
-//        Glide.with(mContext).load(path).asBitmap().into(mImageView);
+        Glide.with(mContext).asBitmap().load(path).into(mImageView);
     }
 
     //设置监听的用处 可以用于监控请求发生错误来源，以及图片来源 是内存还是磁盘
