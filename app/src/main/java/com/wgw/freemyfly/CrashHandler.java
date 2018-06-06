@@ -18,6 +18,8 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import com.wgw.freemyfly.commons.LogToFile;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
@@ -99,7 +101,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler{
                     toast.show();
 
                     //保存错误报告文件
-//                    LogToFile.w("my",msg);**//这句话可以先注释掉，这是我单独写的一个log写入类,下面已提供了该类**
+                    LogToFile.w("my",msg);//这句话可以先注释掉，这是我单独写的一个log写入类,下面已提供了该类**
                 }
 //                MsgPrompt.showMsg(mContext, "程序出错啦", msg+"\n点确认退出");
                 Looper.loop();
