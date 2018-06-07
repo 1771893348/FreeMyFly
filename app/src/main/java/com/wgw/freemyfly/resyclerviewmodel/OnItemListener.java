@@ -6,15 +6,15 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.wgw.freemyfly.ui.interfaces;
+package com.wgw.freemyfly.resyclerviewmodel;
 
 import android.view.View;
 
 /**
- * Created by wgw on 2018/6/5.
+ * Created by wgw on 2018/6/7.
  */
 
-public interface MyItemClickListener {
-    public void onItemClick(View view, int postion);
-    public void onItemLongClick(View view, int position);
+public interface OnItemListener {
+    void onItemClick(View view, int position);
+    void onItemLongClick(View view, int position);
 }

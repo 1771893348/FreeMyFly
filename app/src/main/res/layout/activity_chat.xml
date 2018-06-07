@@ -43,5 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="send"/>
+    <Button
+        android:id="@+id/okHttpTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OkHttpTest"/>
 
 </LinearLayout>

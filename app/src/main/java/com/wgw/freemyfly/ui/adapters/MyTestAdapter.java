@@ -15,6 +15,7 @@ import android.view.View;
 import com.wgw.freemyfly.R;
 import com.wgw.freemyfly.resyclerviewmodel.BaseAdapter;
 import com.wgw.freemyfly.resyclerviewmodel.BaseHolder;
+import com.wgw.freemyfly.resyclerviewmodel.OnItemListener;
 import com.wgw.freemyfly.ui.beans.Person;
 
 import java.util.List;
@@ -25,7 +26,7 @@ import java.util.List;
 
 public class MyTestAdapter extends BaseAdapter<Person> {
 
-    private OnItemClickListener mOnItemClickListener;
+    private OnItemListener mOnItemClickListener;
 
 
 
@@ -52,14 +53,9 @@ public class MyTestAdapter extends BaseAdapter<Person> {
 
     }
 
-    public interface OnItemClickListener
-    {
-        void onItemClick(View view, int position);
-        void onItemLongClick(View view,int position);
 
-    }
 
-    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener)
+    public void setOnItemClickListener(OnItemListener mOnItemClickListener)
     {
         this.mOnItemClickListener = mOnItemClickListener;
     }

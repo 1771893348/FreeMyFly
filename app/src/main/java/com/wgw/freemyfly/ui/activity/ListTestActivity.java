@@ -16,10 +16,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import com.wgw.freemyfly.R;
+import com.wgw.freemyfly.commons.WGWLog;
 import com.wgw.freemyfly.ui.adapters.MyAdapter;
 import com.wgw.freemyfly.ui.beans.Person;
+import com.wgw.freemyfly.ui.interfaces.MyItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +32,12 @@ import java.util.List;
  * Created by wgw on 2018/6/5.
  */
 
-public class ListTestActivity extends Activity{
+public class ListTestActivity extends Activity implements MyItemClickListener{
 
     private RecyclerView recyclerView;
     private List<Person> mPersons;
     private MyAdapter myAdapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +58,9 @@ public class ListTestActivity extends Activity{
         recyclerView.addItemDecoration(new DividerItemDecoration(this,1));
         //设置增加或删除条目的动画
         recyclerView.setItemAnimator( new DefaultItemAnimator());
+        myAdapter.setOnclikListener(this);
         recyclerView.setAdapter(myAdapter);
+
     }
 
     @Override
@@ -94,5 +101,21 @@ public class ListTestActivity extends Activity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        WGWLog.d("onItemClick"+R.id.cell_item,view.getId()+"=="+position);
+
+        switch(view.getId()){
+            case R.id.cell_item:
+                Toast.makeText(this, "click"+ mPersons.get(position).getUserName(), Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+    @Override
+    public void onItemLongClick(View view, int position) {
+
     }
 }

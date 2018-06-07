@@ -52,6 +52,12 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         viewHolder.ItemImage.setImageResource(R.mipmap.ic_launcher);
         viewHolder.Itemtext.setText(person.getUserName());
         viewHolder.Itemtitle.setText(person.getUserAge()+"");
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myItemClickListener.onItemClick(v,position);
+            }
+        });
 
     }
 
