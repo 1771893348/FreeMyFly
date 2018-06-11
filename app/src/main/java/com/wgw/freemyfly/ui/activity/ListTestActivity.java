@@ -17,11 +17,13 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Toast;
 
 import com.wgw.freemyfly.R;
 import com.wgw.freemyfly.commons.WGWLog;
+import com.wgw.freemyfly.resyclerviewmodel.RecyclerViewDivider;
 import com.wgw.freemyfly.ui.adapters.MyAdapter;
 import com.wgw.freemyfly.ui.base.MVPBaseActivity;
 import com.wgw.freemyfly.ui.beans.Person;
@@ -130,7 +132,8 @@ public class ListTestActivity extends MVPBaseActivity<iListTestView,ListTestPres
         myAdapter = new MyAdapter(mContext,mPersons);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(mContext,1));
+        RecyclerViewDivider recyclerViewDivider =  new RecyclerViewDivider(mContext, LinearLayoutManager.VERTICAL);
+        recyclerView.addItemDecoration(recyclerViewDivider);
         //设置增加或删除条目的动画
         recyclerView.setItemAnimator( new DefaultItemAnimator());
         myAdapter.setOnclikListener(ListTestActivity.this);
